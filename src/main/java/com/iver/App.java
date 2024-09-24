@@ -2,6 +2,7 @@ package com.iver;
 
 import com.iver.calculation.CoreCalculator;
 import com.iver.calculation.impl.CircularCoreCalculator;
+import com.iver.calculation.impl.StandardStreamApiCoreCalculator;
 import com.iver.generator.impl.ComputerGenerator;
 import com.iver.generator.impl.MemoryTabGenerator;
 import com.iver.generator.impl.ProcessorGenerator;
@@ -22,7 +23,7 @@ public class App {
     private final MemoryTabGenerator memoryTabGenerator = new MemoryTabGenerator(random);
     private final ComputerGenerator computerGenerator = new ComputerGenerator(memoryTabGenerator, processorGenerator, random);
 
-    private final List<CoreCalculator> calculators = List.of(new CircularCoreCalculator());
+    private final List<CoreCalculator> calculators = List.of(new CircularCoreCalculator(), new StandardStreamApiCoreCalculator());
 
     public static void main(String[] args) {
         App app = new App();
@@ -35,14 +36,14 @@ public class App {
 
         for (List<Computer> collection : computersCollections) {
 
-            println("Collection size: " + collection.size() + "\n");
+            println("\n\nCollection size: " + collection.size() + "\n");
 
             for (CoreCalculator calculator : calculators) {
                 println("Calculator name: " + calculator.calculatorName());
                 var startTime = System.nanoTime();
                 calculator.calculate(collection);
                 var resultTime = System.nanoTime() - startTime;
-                println("Result time: " + resultTime + "\n\n");
+                println("Result time: " + resultTime);
             }
         }
     }
