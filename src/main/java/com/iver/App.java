@@ -2,6 +2,7 @@ package com.iver;
 
 import com.iver.calculation.CoreCalculator;
 import com.iver.calculation.impl.CircularCoreCalculator;
+import com.iver.calculation.impl.CustomStreamApiCoreCalculator;
 import com.iver.calculation.impl.StandardStreamApiCoreCalculator;
 import com.iver.generator.impl.ComputerGenerator;
 import com.iver.generator.impl.MemoryTabGenerator;
@@ -23,7 +24,7 @@ public class App {
     private final MemoryTabGenerator memoryTabGenerator = new MemoryTabGenerator(random);
     private final ComputerGenerator computerGenerator = new ComputerGenerator(memoryTabGenerator, processorGenerator, random);
 
-    private final List<CoreCalculator> calculators = List.of(new CircularCoreCalculator(), new StandardStreamApiCoreCalculator());
+    private final List<CoreCalculator> calculators = List.of(new CircularCoreCalculator(), new StandardStreamApiCoreCalculator(), new CustomStreamApiCoreCalculator());
 
     public static void main(String[] args) {
         App app = new App();
