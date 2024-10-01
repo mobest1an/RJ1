@@ -1,13 +1,13 @@
 package com.iver.calculation.impl;
 
-import com.iver.calculation.CoreCalculator;
+import com.iver.calculation.Calculator;
 import com.iver.records.Computer;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CustomStreamApiCoreCalculator implements CoreCalculator {
+public class StandardStreamApiCalculator implements Calculator {
     @Override
     public Map<Integer, Long> calculate(List<Computer> computers) {
         return computers.stream().collect(Collectors.groupingBy(it -> it.processor().coreNumber(), Collectors.counting()));
@@ -15,6 +15,6 @@ public class CustomStreamApiCoreCalculator implements CoreCalculator {
 
     @Override
     public String calculatorName() {
-        return "Stream API calculator with custom collectors";
+        return "Stream API calculator with standard collectors";
     }
 }

@@ -1,6 +1,6 @@
 package com.iver.enums;
 
-public enum  OperationSystemName {
+public enum OperationSystemName {
     MAC,
     WINDOWS,
     UBUNTU,

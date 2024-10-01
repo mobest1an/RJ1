@@ -14,11 +14,11 @@ import java.util.stream.IntStream;
 
 public class ComputerGenerator implements Generator<Computer> {
 
-    private final MemoryTabGenerator memoryTabGenerator;
-    private final ProcessorGenerator processorGenerator;
+    private final Generator<MemoryTab> memoryTabGenerator;
+    private final Generator<Processor> processorGenerator;
     private final Random random;
 
-    public ComputerGenerator(MemoryTabGenerator memoryTabGenerator, ProcessorGenerator processorGenerator, Random random) {
+    public ComputerGenerator(Generator<MemoryTab> memoryTabGenerator, Generator<Processor> processorGenerator, Random random) {
         this.memoryTabGenerator = memoryTabGenerator;
         this.processorGenerator = processorGenerator;
         this.random = random;
@@ -36,7 +36,14 @@ public class ComputerGenerator implements Generator<Computer> {
     }
 
     private Computer generateComputer() {
-        return new Computer(randomMACAddress(), randomStorageSize(), randomFirstStartTime(), randomOperationSystemName(), generateMemoryTabs(), generateProcessor());
+        return new Computer(
+                randomMACAddress(),
+                randomStorageSize(),
+                randomFirstStartTime(),
+                randomOperationSystemName(),
+                generateMemoryTabs(),
+                generateProcessor()
+        );
     }
 
     private String randomMACAddress() {
