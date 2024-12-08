@@ -6,6 +6,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
@@ -16,7 +17,7 @@ public class CustomCollector implements Collector<Computer, Map<Integer, Long>, 
 
     @Override
     public Supplier<Map<Integer, Long>> supplier() {
-        return HashMap::new;
+        return ConcurrentHashMap::new;
     }
 
     @Override

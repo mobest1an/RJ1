@@ -10,9 +10,11 @@ import java.util.stream.IntStream;
 
 public class ProcessorGenerator implements Generator<Processor> {
     private final Random random;
+    private final boolean withDelay;
 
-    public ProcessorGenerator(Random random) {
+    public ProcessorGenerator(Random random, boolean withDelay) {
         this.random = random;
+        this.withDelay = withDelay;
     }
 
     @Override
@@ -29,7 +31,8 @@ public class ProcessorGenerator implements Generator<Processor> {
     private Processor generateProcessor() {
         return new Processor(
                 generateCoreNumbers(),
-                generateSpeed()
+                generateSpeed(),
+                withDelay
         );
     }
 

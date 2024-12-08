@@ -25,7 +25,7 @@ public class ComputerGeneratorFunctionalTest extends CommonFunctionalTest {
         mockComputerMemoryTabs();
 
         Generator<MemoryTab> memoryTabGenerator = new MemoryTabGenerator(memoryTabRandomMock);
-        Generator<Processor> processorGenerator = new ProcessorGenerator(processorRandomMock);
+        Generator<Processor> processorGenerator = new ProcessorGenerator(processorRandomMock, false);
         Generator<Computer> computerGenerator = new ComputerGenerator(memoryTabGenerator, processorGenerator, computerRandomMock);
 
         Computer actualComputer = computerGenerator.generate(1).get(0);

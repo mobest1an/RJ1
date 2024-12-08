@@ -90,7 +90,8 @@ public abstract class CommonFunctionalTest {
                 ),
                 new Processor(
                         2,
-                        4200
+                        4200,
+                        false
                 ));
     }
 
@@ -112,7 +113,8 @@ public abstract class CommonFunctionalTest {
                 ),
                 new Processor(
                         3,
-                        4200
+                        4200,
+                        false
                 ));
     }
 }
