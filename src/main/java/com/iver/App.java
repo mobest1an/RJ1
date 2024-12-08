@@ -9,6 +9,8 @@ import com.iver.generator.impl.ProcessorGenerator;
 import com.iver.records.Computer;
 import com.iver.records.MemoryTab;
 import com.iver.records.Processor;
+import com.iver.util.CustomObserver;
+import com.iver.util.CustomSubscriber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,8 @@ public class App {
     private final Generator<MemoryTab> memoryTabGenerator = new MemoryTabGenerator(random);
     private final Generator<Computer> computerGenerator = new ComputerGenerator(memoryTabGenerator, processorGenerator, random);
     private final Generator<Computer> withDelayComputerGenerator = new ComputerGenerator(memoryTabGenerator, withDelayProcessorGenerator, random);
+    private final CustomObserver customObserver = new CustomObserver();
+    private final CustomSubscriber customSubscriber = new CustomSubscriber();
 
     private final List<Calculator> calculators = List.of(
             new CircularCalculator(),
@@ -33,7 +37,9 @@ public class App {
             new CustomStreamApiCalculator(),
             new ParallelStreamApiCalculator(),
             new ParallelStreamApiCustomCalculator(),
-            new ParallelStreamApiCustomSpliteratorCalculator()
+            new ParallelStreamApiCustomSpliteratorCalculator(),
+            new ObservableCalculator(customObserver),
+            new FlowableCalculator(customSubscriber)
     );
 
     public static void main(String[] args) {
