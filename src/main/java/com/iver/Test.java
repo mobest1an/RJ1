@@ -18,7 +18,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-@BenchmarkMode(Mode.All)
+@BenchmarkMode(Mode.AverageTime)
 @Warmup(iterations = 3, time = 2, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 3, time = 2, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
@@ -32,7 +32,7 @@ public class Test {
     private final Generator<Computer> withDelayComputerGenerator = new ComputerGenerator(memoryTabGenerator, withDelayProcessorGenerator, random);
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchCircularCalculator500() {
         int[] collectionSizes = {500};
 
@@ -50,7 +50,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchCircularCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -68,7 +68,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchCircularCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -86,7 +86,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchCircularCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -104,7 +104,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchCircularCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -122,7 +122,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchCircularCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -140,7 +140,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStreamApiCalculator500() {
         int[] collectionSizes = {500};
 
@@ -158,7 +158,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStreamApiCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -176,7 +176,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStreamApiCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -194,7 +194,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStreamApiCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -212,7 +212,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStreamApiCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -230,7 +230,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStreamApiCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -248,7 +248,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchFlowableCalculator500() {
         int[] collectionSizes = {500};
 
@@ -266,7 +266,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchFlowableCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -284,7 +284,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchFlowableCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -302,7 +302,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchFlowableCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -321,7 +321,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchFlowableCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -339,7 +339,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchFlowableCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -357,7 +357,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchObservableCalculator500() {
         int[] collectionSizes = {500};
 
@@ -375,7 +375,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchObservableCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -393,7 +393,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchObservableCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -411,7 +411,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchObservableCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -429,7 +429,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchObservableCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -447,7 +447,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchObservableCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -466,7 +466,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCalculator500() {
         int[] collectionSizes = {500};
 
@@ -485,7 +485,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -504,7 +504,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -522,7 +522,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -541,7 +541,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -559,7 +559,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -577,7 +577,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomCalculator500() {
         int[] collectionSizes = {500};
 
@@ -595,7 +595,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -613,7 +613,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -631,7 +631,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -649,7 +649,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -667,7 +667,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -685,7 +685,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomSpliteratorCalculator500() {
         int[] collectionSizes = {500};
 
@@ -704,7 +704,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomSpliteratorCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -723,7 +723,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomSpliteratorCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -741,7 +741,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomSpliteratorCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -759,7 +759,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomSpliteratorCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -777,7 +777,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchParallelStreamApiCustomSpliteratorCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
@@ -795,7 +795,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStandardStreamApiCalculator500() {
         int[] collectionSizes = {500};
 
@@ -813,7 +813,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStandardStreamApiCalculator500Delay() {
         int[] collectionSizes = {500};
 
@@ -831,7 +831,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStandardStreamApiCalculator5000() {
         int[] collectionSizes = {5000};
 
@@ -849,7 +849,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStandardStreamApiCalculator5000Delay() {
         int[] collectionSizes = {5000};
 
@@ -867,7 +867,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStandardStreamApiCalculator50000() {
         int[] collectionSizes = {50000};
 
@@ -885,7 +885,7 @@ public class Test {
     }
 
     @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStandardStreamApiCalculator50000Delay() {
         int[] collectionSizes = {50000};
 
