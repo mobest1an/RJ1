@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -48,13 +50,12 @@
     <dependency>
       <groupId>org.openjdk.jmh</groupId>
       <artifactId>jmh-core</artifactId>
-      <version>1.35</version>
+      <version>1.37</version>
     </dependency>
     <dependency>
       <groupId>org.openjdk.jmh</groupId>
       <artifactId>jmh-generator-annprocess</artifactId>
-      <version>1.35</version>
-      <scope>provided</scope>
+      <version>1.37</version>
     </dependency>
     <dependency>
       <groupId>io.reactivex.rxjava3</groupId>
@@ -67,9 +68,15 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
-          <source>17</source>
-          <target>17</target>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.openjdk.jmh</groupId>
+              <artifactId>jmh-generator-annprocess</artifactId>
+              <version>1.37</version>
+            </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>
@@ -93,6 +100,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
+        <version>3.5.0</version>
         <executions>
           <execution>
             <id>run-benchmarks</id>
@@ -106,7 +114,7 @@
               <arguments>
                 <argument>-classpath</argument>
                 <classpath />
-                <argument>org.openjdk.jmh.Main</argument>
+                <argument>com.iver.App</argument>
                 <argument>.*</argument>
               </arguments>
             </configuration>
