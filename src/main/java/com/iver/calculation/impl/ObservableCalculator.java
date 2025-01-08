@@ -3,6 +3,7 @@ package com.iver.calculation.impl;
 import com.iver.calculation.Calculator;
 import com.iver.records.Computer;
 import com.iver.util.CustomObserver;
+import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -19,9 +20,11 @@ public class ObservableCalculator implements Calculator {
     @Override
     public Map<Integer, Long> calculate(List<Computer> computers) {
         Observable<Computer> observable = Observable.fromIterable(computers);
-        observable
+        observable.forEach(it -> Observable
+                .just(it)
                 .subscribeOn(Schedulers.computation())
-                .subscribe(customObserver);
+                .subscribe(customObserver)
+        );
         return customObserver.getResults();
     }
 

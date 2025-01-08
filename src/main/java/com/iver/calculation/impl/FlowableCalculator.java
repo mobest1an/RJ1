@@ -23,8 +23,11 @@ public class FlowableCalculator implements Calculator {
     public Map<Integer, Long> calculate(List<Computer> computers) {
         Flowable<Computer> flowable = Observable.fromIterable(computers).toFlowable(BackpressureStrategy.BUFFER);
         flowable
-                .subscribeOn(Schedulers.computation())
-                .subscribe(subscriber);
+                .forEach(it -> Flowable
+                        .just(it)
+                        .subscribeOn(Schedulers.computation())
+                        .subscribe(subscriber)
+                );
         return subscriber.getResults();
     }
 

@@ -3,6 +3,7 @@ package com.iver.util;
 import com.iver.records.Computer;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.FlowableSubscriber;
+import lombok.Getter;
 import org.reactivestreams.Subscription;
 
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CustomSubscriber implements FlowableSubscriber<Computer> {
 
     private final long BUFFER_SIZE = 10L;
+    @Getter
     private Map<Integer, Long> results;
     private Subscription subscription;
 
@@ -40,7 +42,4 @@ public class CustomSubscriber implements FlowableSubscriber<Computer> {
 
     }
 
-    public Map<Integer, Long> getResults() {
-        return results;
-    }
 }
